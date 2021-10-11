@@ -6,12 +6,10 @@ import java.sql.SQLException;
 public class borrar {
 
 	public static void main(String[] args) {
-		// Paso 1: Establecemos los parametros de conexión con la base de datos
 		String cadenaConexion = "jdbc:mysql://localhost:3306/coches";
 		String user = "root";
 		String pass = "";
 				
-		// Paso 2: Interactuar con la BD
 		try (Connection con = DriverManager.getConnection(cadenaConexion, user, pass);){
 			
 			String sql = "DELETE FROM CARS WHERE ID=?"; 
@@ -24,7 +22,6 @@ public class borrar {
 			PreparedStatement sentencia = con.prepareStatement(sql);
 			sentencia.setInt(1, id);
 			
-			//Como estamos cambiando registros, executeUpdate
 			int afectados = sentencia.executeUpdate();
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros afectados: "+afectados);
