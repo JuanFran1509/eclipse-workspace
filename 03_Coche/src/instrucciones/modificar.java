@@ -36,7 +36,7 @@ public class modificar {
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros afectados: " + afectados);
 		} catch (SQLException e) {
-			System.out.println("Error al añadir nuevo cliente");
+			System.out.println("Error al añadir el nuevo coche");
 			System.out.println(e.getMessage());
 		}
 	}

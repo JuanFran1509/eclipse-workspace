@@ -37,7 +37,7 @@ public class insertar {
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros afectados: "+afectados);
 		} catch (SQLException e) {
-			System.out.println("Error al añadir una nueva persona");
+			System.out.println("Error al añadir un nuevo coche");
 			System.out.println(e.getMessage());
 		}
 

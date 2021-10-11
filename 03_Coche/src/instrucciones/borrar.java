@@ -26,7 +26,7 @@ public class borrar {
 			System.out.println("Sentencia SQL ejecutada con éxito");
 			System.out.println("Registros afectados: "+afectados);
 		} catch (SQLException e) {
-			System.out.println("Error al borrar el cliente");
+			System.out.println("Error al borrar el coche");
 			System.out.println(e.getMessage());
 		}
 	}

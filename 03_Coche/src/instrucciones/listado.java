@@ -29,7 +29,7 @@ public class listado {
 				System.out.println();
 			}
 		} catch (SQLException e) {
-			System.out.println("Error al realizar el listado de productos");
+			System.out.println("Error al realizar el listado de coches");
 			System.out.println(e.getMessage());
 		}
 	}
