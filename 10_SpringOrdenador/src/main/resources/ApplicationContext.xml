@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="ram1" class="entidad.Ram">
+		<property name="precio" value="50"></property>
+		<property name="hz" value="60"></property>
+		<property name="generacion" value="ultima"></property>
+	</bean>
+
+	<bean id="ram2" class="entidad.Ram">
+		<property name="precio" value="50"></property>
+		<property name="hz" value="60"></property>
+		<property name="generacion" value="ultima"></property>
+	</bean>
+
+	<bean id="procesador" class="entidad.Procesador">
+		<property name="precio" value="150"></property>
+		<property name="hz" value="60"></property>
+		<property name="marca" value="intel"></property>
+	</bean>
+
+	<bean id="tarjetagrafica1" class="entidad.TarjetaGrafica">
+		<property name="precio" value="70"></property>
+		<property name="marca" value="nvidia"></property>
+		<property name="modelo" value="1050ti"></property>
+	</bean>
+
+	<bean id="tarjetagrafica2" class="entidad.TarjetaGrafica">
+		<property name="precio" value="70"></property>
+		<property name="marca" value="nvidia"></property>
+		<property name="modelo" value="1050ti"></property>
+	</bean>
+
+	<bean id="periferico1" class="entidad.Perifericos">
+		<property name="nombre" value="raton gaming"></property>
+		<property name="precio" value="70"></property>
+		<property name="marca" value="razer"></property>
+		<property name="modelo" value="357"></property>
+	</bean>
+
+	<bean id="periferico2" class="entidad.Perifericos">
+		<property name="nombre" value="auriculares gaming"></property>
+		<property name="precio" value="80"></property>
+		<property name="marca" value="razer"></property>
+		<property name="modelo" value="3784"></property>
+	</bean>
+
+	<bean id="placabase" class="entidad.PlacaBase">
+		<property name="precio" value="128"></property>
+		<property name="marca" value="acer"></property>
+		<property name="modelo" value="143431"></property>
+	</bean>
+
+
+	<bean id="listaram" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="ram1" />
+				<ref bean="ram2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="listatarjetagrafica" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="tarjetagrafica1" />
+				<ref bean="tarjetagrafica2" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="listaperifericos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="periferico1" />
+				<ref bean="periferico2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	 <bean id="ordenador" class="entidad.Ordenador">
+		<property name="marca" value="Acer"></property>
+		<property name="listaRam" ref="listaram">
+			
+		</property>
+		<property name="procesador" ref="procesador">
+		</property>
+		<property name="listaTarjetaGrafica" ref="listatarjetagrafica">
+		</property>
+		<property name="listaPerifericos" ref="listaperifericos">
+		</property>
+		<property name="placaBase" ref="placabase">
+
+		</property>
+
+	</bean>
+</beans>
