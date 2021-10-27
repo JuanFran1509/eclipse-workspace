@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="generarNumeroAleatorio" class="util.NumeroAleatorio"></bean>
+	<bean id="generarMarcaAleatoria" class="util.MarcaAleatoria"></bean>
+
+
+	<bean id="ram1" class="entidad.Ram">
+
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(100,20)}"></property>
+		<property name="hz" value="90"></property>
+		<property name="generacion" value="segunda generacion"></property>
+	</bean>
+	<bean id="ram2" class="entidad.Ram">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(100,20)}"></property>
+		<property name="hz" value="90"></property>
+		<property name="generacion" value="segunda generacion"></property>
+	</bean>
+	<bean id="ramGraficaIntegrada" class="entidad.Ram">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(100,20)}"></property>
+		<property name="hz" value="160"></property>
+		<property name="generacion" value="ultima generacion"></property>
+	</bean>
+	<bean id="ramGrafica" class="entidad.Ram">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(100,20)}"></property>
+		<property name="hz" value="240"></property>
+		<property name="generacion" value="tercera generacion"></property>
+	</bean>
+
+
+	<bean id="listaRam" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Ram">
+				<ref bean="ram1" />
+				<ref bean="ram2" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="tarjetaGraficaIntegrada" class="entidad.TarjetaGrafica">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="modelo" value="DTYUK56"></property>
+		<property name="ram" ref="ramGraficaIntegrada"></property>
+	</bean>
+	<bean id="tarjetaGrafica1" class="entidad.TarjetaGrafica">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="modelo" value="NVIDIA GTX 3075"></property>
+		<property name="ram" ref="ramGrafica"></property>
+	</bean>
+
+
+	<bean id="listaTarjetasGraficas" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.TarjetaGrafica">
+				<ref bean="tarjetaGraficaIntegrada" />
+				<ref bean="tarjetaGrafica1" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="procesador" class="entidad.Procesador" autowire="byName">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="hz" value="300"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+	</bean>
+
+
+	<bean id="periferico1" class="entidad.Periferico">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="RATON"></property>
+	</bean>
+	<bean id="periferico2" class="entidad.Periferico">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="TECLADO"></property>
+	</bean>
+	<bean id="periferico3" class="entidad.Periferico">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(200,20)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="tipo" value="MONITOR"></property>
+	</bean>
+
+
+	<bean id="listaPerifericos" class="java.util.ArrayList">
+		<constructor-arg>
+			<list value-type="entidad.Periferico">
+				<ref bean="periferico1" />
+				<ref bean="periferico2" />
+				<ref bean="periferico3" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+	<bean id="placaBase" class="entidad.PlacaBase">
+		<property name="precio"
+			value="#{generarNumeroAleatorio.generarNumero(500,24)}"></property>
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+		<property name="modelo" value="X4070"></property>
+	</bean>
+
+
+	<bean id="ordenador" class="entidad.Ordenador" autowire="byName"
+		init-method="inicializador">
+		<property name="marca"
+			value="#{generarMarcaAleatoria.generarMarca()}"></property>
+	</bean>
+
+	<bean id="daoOrdenador" class="dao.DaoOrdenador" autowire="byName"></bean>
+
+</beans>	

@@ -34,22 +34,22 @@
 
 	<bean id="periferico1" class="entidad.Perifericos">
 		<property name="nombre" value="raton gaming"></property>
-		<property name="precio" value="70"></property>
+		<property name="precio" value="50"></property>
 		<property name="marca" value="razer"></property>
-		<property name="modelo" value="357"></property>
+		<property name="modelo" value="g798e65"></property>
 	</bean>
 
 	<bean id="periferico2" class="entidad.Perifericos">
 		<property name="nombre" value="auriculares gaming"></property>
-		<property name="precio" value="80"></property>
+		<property name="precio" value="75"></property>
 		<property name="marca" value="razer"></property>
-		<property name="modelo" value="3784"></property>
+		<property name="modelo" value="yf64s"></property>
 	</bean>
 
 	<bean id="placabase" class="entidad.PlacaBase">
-		<property name="precio" value="128"></property>
+		<property name="precio" value="327"></property>
 		<property name="marca" value="acer"></property>
-		<property name="modelo" value="143431"></property>
+		<property name="modelo" value="f57s6"></property>
 	</bean>
 
 
